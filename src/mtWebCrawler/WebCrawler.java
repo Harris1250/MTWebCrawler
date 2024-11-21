@@ -2,6 +2,8 @@ package mtWebCrawler;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -12,7 +14,7 @@ public class WebCrawler implements Runnable{
 	private static final int MAX_DEPTH = 3;
 	private Thread thread;
 	private String first_link;
-	private ArrayList<String> visitedLinks = new ArrayList<String>();
+	private final Set<String> visitedLinks = ConcurrentHashMap.newKeySet();
 	private int ID;
 	
 public WebCrawler(String link, int num){
@@ -36,7 +38,7 @@ private void crawl(int level, String url){
 			for(Element link: doc.select("a[href]")){
 				String next_link = link.absUrl("href");
 				if(visitedLinks.contains(next_link) == false){
-					crawl(level++, next_link);
+					crawl(level + 1, next_link);
 				}
 			}
 		}
@@ -49,7 +51,7 @@ private Document request(String url){
 		Document doc = con.get();
 		
 		if(con.response().statusCode() == 200){
-			System.out.print("\n**Bot ID:" + ID + " Recieved Webpage at " + url);
+			System.out.println("\n**Bot ID:" + ID + " Recieved Webpage at " + url);
 			
 			String title = doc.title();
 			System.out.println(title);
