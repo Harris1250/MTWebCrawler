@@ -26,18 +26,19 @@
 
 ```
 MTWebCrawler/
-│
 ├── lib/
-│   └── jsoup-1.16.1.jar            # JSoup library (external)
-│
+│   └── jsoup-1.16.1.jar
 ├── src/
 │   └── mtWebCrawler/
-│       ├── Main.java               # Entry point for execution
-│       └── WebCrawler.java         # Crawler logic
-│
+│       ├── Main.java
+│       └── WebCrawler.java
+├── screenshots/
+│   ├── screenshot-1-start.png
+│   ├── screenshot-2-crawling.png
+│   ├── screenshot-4-diverse-links.png
+│   └── screenshot-5-finish.png
 ├── .classpath
 ├── .project
-├── .gitignore
 └── README.md
 ```
 
@@ -65,21 +66,21 @@ java -cp ".;../lib/jsoup-1.16.1.jar" mtWebCrawler.Main
 
 ## 📸 Screenshots
 
-### 🧵 1. Threads launched & crawling begins  
-![Start Crawler](../Screenshot/start.png)
+### 🧵 1. Crawler Compiled & Started
+![Start](screenshots/screenshot-1-start.png)
 
-### 🌍 2. Real-time output with live links and page titles  
-![Live Crawling Output](../Screenshot/crawling.png)
+### 🌐 2. Real-Time Crawling Output
+![Crawling](screenshots/screenshot-2-crawling.png)
 
-### 🔗 3. Diverse link scraping from multiple domains  
-![Diverse Links](../screenshot-4-diverse-links.png)
+### 🔗 3. Link Coverage Across Domains
+![Links](screenshots/screenshot-4-diverse-links.png)
 
-### ✅ 4. Completion of crawl, full bot cycle shown  
-![Crawl Complete](../screenshot-5-finish.png)
+### ✅ 4. Full Crawl Completion
+![Finish](screenshots/screenshot-5-finish.png)
 
 ---
 
-## 🧪 Sample Output
+## 📊 Sample Output
 
 ```text
 **Bot ID:1** Received Webpage at https://abcnews.go.com
@@ -101,4 +102,4 @@ The New York Times - US News, World News and Videos
 
 ---
 
-> “Scan fast. Index smart. Crawl deep.”  
+> “Scan fast. Index smart. Crawl deep.”
